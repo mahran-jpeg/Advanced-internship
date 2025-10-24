@@ -15,7 +15,7 @@ interface Movie {
   title: string
   director: string
   imageLink: string
-  rating: number
+  rating: number | string
   subscriptionRequired: boolean
 }
 
@@ -43,7 +43,7 @@ function MovieCarouselSkeleton() {
   )
 }
 
-function MoviesCarousel({ movies }: { movies: Movie[] | undefined; isLoading: boolean }) {
+function MoviesCarousel({ movies, isLoading }: { movies: Movie[] | undefined; isLoading?: boolean }) {
   const {userData , loading} = useAuth()
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
